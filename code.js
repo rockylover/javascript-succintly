@@ -99,3 +99,16 @@ var myRegExp = new RegExp('\bt[a-z]+\b');
 console.log(myFunction.constructor);
 console.log(myError.constructor);
 console.log(myRegExp.constructor);
+
+// difference between literal
+
+var myNumber = new Number(23); //this is an object
+var myNumberLiteral = 23; // primitive no. value, not an object
+
+// with this loc we verify that literals are created from the same constructor
+console.log(myNumber.constructor, myNumberLiteral.constructor);
+
+// the primitive values such as null, undefined, "string", 10, true, and false
+// are not objects
+
+
