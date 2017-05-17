@@ -88,3 +88,14 @@ var x = new Math(); //this ain't possible
 // but this is
 var x = Math.PI; // Math is just a namespace that has a lot of variables
 
+// instantiating native constructors
+
+var myFunction = new Function("x", "y", "return x*y");
+var myError = new Error('Darn!');
+var myRegExp = new RegExp('\bt[a-z]+\b');
+
+// logging which constructor created the object
+
+console.log(myFunction.constructor);
+console.log(myError.constructor);
+console.log(myRegExp.constructor);
