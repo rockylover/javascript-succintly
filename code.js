@@ -111,4 +111,96 @@ console.log(myNumber.constructor, myNumberLiteral.constructor);
 // the primitive values such as null, undefined, "string", 10, true, and false
 // are not objects
 
+// equal by value and equal by reference
+
+var price1 = 10;
+var price2 = 10;
+var price3 = new Number('10'); // not a primitive
+var price4 = price3;
+
+console.log(price1 === price2); // true
+console.log(price1 === price3); // false, cuz price1 is primitive and price3
+// is not
+console.log(price4 === price3); // true by reference and not by value
+price4 = 10;
+console.log(price4 === price3);
+
+// complex objects and their dynamic properties
+// a new variable that points to an exisiting objet, will not copy the object
+// but will only be a reference to that object
+
+var objA = {property: 'value'};
+var pointer1 = objA;
+var pointer2 = pointer1;
+
+objA.property = null;
+
+// now all three references are pointing to the same object and, the .property
+// to any of these will return null, and not 'value'
+
+// encapsulating complex objects into other objects
+
+var object1 = {
+	object1_1: {
+		object1_1_1: {
+			foo: 'bar'
+		},
+		object1_1_2: {},
+	},
+	object1_2: {
+		object1_2_1: {},
+		object1_2_2: {},
+	}
+};
+
+// setting object properties
+
+cody['living'] = false;
+
+// getting object properties
+
+console.log(cody.living);
+
+// deleting object properties
+
+delete cody.living;
+
+// how to check if a property exists by using in operator
+
+var myObject = {
+	foo: 'value';
+};
+console.log('foo' in myObject); // this will return true
+console.log('toString' in myObject); // this will also return true
+// because every object has toString
+// Object.prototype.toString
+
+// looping over object's properties with for in
+
+var cody = {
+	age: 23;
+	gender: 'male';
+};
+
+for (var key in cody) {
+	if (cody.hasOwnProperty(key)) {
+		console.log(key);
+	}
+}
+
+// for in loop has a drawback. It will not only access the properties of the specific
+// object being looped over
+
+// how to print all properites in window object
+
+for (x in window) {
+	console.log(x);
+}
+
+// method to list all the objects contained inside window.document object
+
+for (x in window.document) {
+	console.log();
+}
+
 
